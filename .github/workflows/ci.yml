@@ -19,11 +19,19 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install Dependencies
-        run: npm install
+      - name: Install Rote CLI & Dependencies
+        run: |
+          npm install -g rote || true
+          npm install
 
       - name: Run CI Test Suite
         run: npm test
+
+      - name: Run Autonomous Rote CI Healer
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          rote play run https://play.modiqo.ai/swapankumar/ci-test-healer@1.2.0 api_key=$OPENAI_API_KEY model=gpt-4o-mini --yes
 
       - name: Build Frontend
         run: npm run build
