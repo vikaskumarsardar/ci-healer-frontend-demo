@@ -1,0 +1,22 @@
+
+=== COMMAND: npm run build ===
+
+> ci-healer-frontend-demo@1.0.0 build
+> vite build
+
+vite v4.5.14 building for production...
+transforming...
+✓ 26 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.70 kB │ gzip:  0.41 kB
+dist/assets/index-84a6e13b.css    2.40 kB │ gzip:  1.00 kB
+dist/assets/index-9f0d44ba.js   142.93 kB │ gzip: 46.00 kB
+✓ built in 1.41s
+
+=== COMMAND: npm test ===
+
+> ci-healer-frontend-demo@1.0.0 test
+> node test.js
+
+Frontend ES module verification test passed!
