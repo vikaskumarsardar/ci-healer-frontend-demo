@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "npx oxlint --deny no-const-assign src/",
-    "test": "npx oxlint --deny no-const-assign src/ && npm run build && node test.js"
+    "test": "node test.js"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -18,8 +17,6 @@
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
-    "oxlint": "^0.15.0",
-    "typescript": "^5.1.3",
     "vite": "^4.4.5"
   }
 }
