@@ -24,14 +24,18 @@ jobs:
           npm install -g rote || true
           npm install
 
+      - name: Run Linter & Type Check
+        run: npm run lint
+
       - name: Run CI Test Suite
         run: npm test
 
       - name: Run Autonomous Rote CI Healer
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          rote play run https://play.modiqo.ai/swapankumar/ci-test-healer@1.2.0 api_key=$OPENAI_API_KEY model=gpt-4o-mini --yes
+          rote play run https://play.modiqo.ai/swapankumar/ci-test-healer@1.6.0 api_key=$GEMINI_API_KEY model=gemini-1.5-flash auto_push=true --yes
 
       - name: Build Frontend
         run: npm run build
