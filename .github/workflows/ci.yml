@@ -28,7 +28,7 @@ jobs:
 
       - name: Install Rote CLI & Dependencies
         run: |
-          curl -fsSL https://play.modiqo.ai/install.sh | bash
+          curl -fsSL https://play.modiqo.ai/install | bash
           echo "$HOME/.local/bin" >> $GITHUB_PATH
           npm install
 
