@@ -1,4 +1,4 @@
-name: CI Workflow
+name: CI & GitHub Pages Deployment Workflow
 
 on:
   push:
@@ -6,13 +6,20 @@ on:
   pull_request:
     branches: [ master, main ]
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
-  test:
+  test-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -29,11 +36,19 @@ jobs:
           npm run build
           npm test
 
-      # 🚨 Triggered ONLY on CI build/test failure
+      # 🚨 Triggered ONLY on CI build/test failure -> Heals & auto-pushes fix to Git!
       - name: Autonomous Rote CI/CD Self-Healing Healer
         if: failure()
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          rote play run https://play.modiqo.ai/swapankumar/ci-test-healer@5.1.0 api_key=$GEMINI_API_KEY model=gemini-3.5-flash auto_push=true --yes
+          rote play run https://play.modiqo.ai/swapankumar/ci-self-healer@1.0.0 api_key=$GEMINI_API_KEY model=gemini-3.5-flash auto_push=true --yes
+
+      # 🚀 Triggered ONLY on CI build/test success -> Automatically publishes React App to GitHub Pages!
+      - name: Deploy React App to GitHub Pages
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
