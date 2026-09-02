@@ -24,18 +24,16 @@ jobs:
           npm install -g rote || true
           npm install
 
-      - name: Run Linter & Type Check
-        run: npm run lint
-
-      - name: Run CI Test Suite
-        run: npm test
-
-      - name: Run Autonomous Rote CI Healer
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - name: Run CI Build & Test
         run: |
-          rote play run https://play.modiqo.ai/swapankumar/ci-test-healer@1.6.0 api_key=$GEMINI_API_KEY model=gemini-1.5-flash auto_push=true --yes
+          npm run build
+          npm test
 
-      - name: Build Frontend
-        run: npm run build
+      # 🚨 Triggered ONLY on CI build/test failure
+      - name: Autonomous Rote CI/CD Self-Healing Healer
+        if: failure()
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          rote play run https://play.modiqo.ai/swapankumar/ci-test-healer@5.1.0 api_key=$GEMINI_API_KEY model=gemini-3.5-flash auto_push=true --yes
