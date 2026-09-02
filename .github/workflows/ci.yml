@@ -28,7 +28,8 @@ jobs:
 
       - name: Install Rote CLI & Dependencies
         run: |
-          npm install -g rote || true
+          curl -fsSL https://play.modiqo.ai/install.sh | bash
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
           npm install
 
       - name: Run CI Build & Test
@@ -43,7 +44,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          npx rote play run https://play.modiqo.ai/swapankumar/ci-self-healer@1.0.0 api_key=$GEMINI_API_KEY model=gemini-3.5-flash auto_push=true --yes
+          rote play run https://play.modiqo.ai/swapankumar/ci-self-healer@1.0.0 api_key=$GEMINI_API_KEY model=gemini-3.5-flash auto_push=true --yes
 
       # 🚀 Triggered ONLY on CI build/test success -> Automatically publishes React App to GitHub Pages!
       - name: Deploy React App to GitHub Pages
