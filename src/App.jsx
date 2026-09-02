@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 
 export default function App() {
   const [buildCount, setBuildCount] = useState(42);
-const testing = 90;
-testing = 234;
+
   return (
     <div className="dashboard-container">
       <div className="header">
