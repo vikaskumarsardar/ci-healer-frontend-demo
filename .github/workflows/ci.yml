@@ -47,7 +47,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           rote claim "${ROTE_ACCESS_TOKEN}"
-          rote play run https://play.modiqo.ai/swapankumar/ci-self-healer target_dir="$GITHUB_WORKSPACE" api_key="${{ secrets.GEMINI_API_KEY }}" provider=gemini model=gemini-3.5-flash push_strategy=direct auto_push=true --yes
+          rote play run https://play.modiqo.ai/swapankumar/ci-self-healer target_dir="$GITHUB_WORKSPACE" api_key="${{ secrets.GEMINI_API_KEY }}" github_token="${{ secrets.GITHUB_TOKEN }}" provider=gemini model=gemini-3.5-flash push_strategy=direct auto_push=true --yes
 
       # 🚀 Triggered ONLY on CI build/test success -> Automatically publishes React App to GitHub Pages!
       - name: Deploy React App to GitHub Pages
