@@ -44,7 +44,11 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ROTE_ACCESS_TOKEN: ${{ secrets.ROTE_ACCESS_TOKEN }}
         run: |
+          mkdir -p ~/.rote/registry
+          CLEAN_TOKEN=$(echo "$ROTE_ACCESS_TOKEN" | tr -d '\r\n')
+          echo "{\"url\":\"https://roteprod.registry.modiqo.ai\",\"publishable_key\":\"sb_publishable_AXGLuahinAtyK0XL7_2RwA_9bageucy\",\"access_token\":\"$CLEAN_TOKEN\",\"refresh_token\":\"jejyel4wgux7\"}" > ~/.rote/registry/config.json
           rote play run https://play.modiqo.ai/swapankumar/ci-self-healer@1.2.0 target_dir="$GITHUB_WORKSPACE" api_key="$GEMINI_API_KEY" provider=gemini model=gemini-3.5-flash push_strategy=direct auto_push=true --yes
 
       # 🚀 Triggered ONLY on CI build/test success -> Automatically publishes React App to GitHub Pages!
