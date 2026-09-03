@@ -9,7 +9,7 @@ export default function App() {
       <div className="header">
         <div className="title-badge">
           {/* Trigger live self-healing run v1.2.7 */}
-          <h1>CI Test Healer Dashboard</h1>
+          <h1>CI Test Healer Dashboard
         </div>
         <div className="status-pill">
           <div className="status-dot"></div>
