@@ -8,7 +8,7 @@ export default function App() {
       <div className="header">
         <div className="title-badge">
           <span>⚡</span>
-          <h1>CI Test Healer Dashboard
+          <h1>CI Test Healer Dashboard</h1>
         </div>
         <div className="status-pill">
           <div className="status-dot"></div>
