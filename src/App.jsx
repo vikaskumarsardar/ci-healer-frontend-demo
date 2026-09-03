@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 export default function App() {
   const [buildCount] = useState(42);
-  const name = "abc";
+  let name = "abc";
   name = "sardar";
   return (
     <div className="dashboard-container">
