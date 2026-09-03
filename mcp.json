@@ -6,11 +6,10 @@
         "play",
         "run",
         "https://play.modiqo.ai/swapankumar/ci-self-healer",
-        "target_dir=.",
+        "target_dir=${workspaceFolder}",
         "provider=gemini",
         "model=gemini-3.5-flash",
-        "push_strategy=direct",
-        "auto_push=true",
+        "push_strategy=none",
         "--yes"
       ],
       "description": "Autonomous Rote CI/CD Self-Healing Healer that auto-diagnoses build, lint, or test failures across Node.js, Python, Go, and Rust, applies line-edit repairs, verifies test suites, and pushes fixes."
