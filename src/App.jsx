@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 export default function App() {
   const [buildCount] = useState(42);
-  const name = "abc"
-  name = "sardar"
+  let name = "abc";
+  name = "sardar";
   return (
     <div className="dashboard-container">
       <div className="header">
         <div className="title-badge">
           {/* Hackathon Winner Live Demo Trigger */}
-          <h1>CI Test Healer Dashboard
+          <h1>CI Test Healer Dashboard</h1>
         </div>
         <div className="status-pill">
           <div className="status-dot"></div>
