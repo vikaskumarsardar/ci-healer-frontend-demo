@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 
 export default function App() {
   const [buildCount, setBuildCount] = useState(42);
-
+const name = "a"
+name = "swapan kumar sardar"
   return (
     <div className="dashboard-container">
       <div className="header">
