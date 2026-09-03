@@ -14,7 +14,6 @@ Execute the published Rote play on the workspace directory:
 ```bash
 rote play run https://play.modiqo.ai/swapankumar/ci-self-healer \
   target_dir="${GITHUB_WORKSPACE:-.}" \
-  api_key="${GEMINI_API_KEY}" \
   provider=gemini \
   model=gemini-3.5-flash \
   push_strategy=direct \
