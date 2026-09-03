@@ -16,7 +16,6 @@ rote play run https://play.modiqo.ai/swapankumar/ci-self-healer \
   target_dir="${GITHUB_WORKSPACE:-.}" \
   provider=gemini \
   model=gemini-3.5-flash \
-  push_strategy=direct \
-  auto_push=true \
+  push_strategy="${PUSH_STRATEGY:-none}" \
   --yes
 ```
