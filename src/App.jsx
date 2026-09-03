@@ -29,7 +29,7 @@ export default function App() {
 
         <div className="card">
           <div className="card-title">Total Builds Processed - Simulated test
-          <div className="card-value">{buildCount}</div>
+          <div className="card-value">{buildCount}</div
         </div>
       </div>
 
