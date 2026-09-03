@@ -1,22 +1,48 @@
 
-=== COMMAND: npm run build ===
-
+=== COMMAND FAILED: npm run build ===
 > ci-healer-frontend-demo@1.0.0 build
 > vite build
 
 vite v4.5.14 building for production...
 transforming...
-✓ 26 modules transformed.
-rendering chunks...
-computing gzip size...
-dist/index.html                   0.70 kB │ gzip:  0.41 kB
-dist/assets/index-84a6e13b.css    2.40 kB │ gzip:  1.00 kB
-dist/assets/index-9f0d44ba.js   142.93 kB │ gzip: 46.00 kB
-✓ built in 1.15s
+✓ 4 modules transformed.
+✓ built in 109ms
 
-=== COMMAND: npm test ===
+[vite:esbuild] Transform failed with 2 errors:
+/home/user/Desktop/ci-healer-frontend-demo/src/App.jsx:13:10: ERROR: Expected closing "div" tag to match opening "h1" tag
+/home/user/Desktop/ci-healer-frontend-demo/src/App.jsx:42:1: ERROR: Unexpected end of file before a closing "div" tag
+file: /home/user/Desktop/ci-healer-frontend-demo/src/App.jsx:13:10
 
-> ci-healer-frontend-demo@1.0.0 test
-> node test.js
+Expected closing "div" tag to match opening "h1" tag
+11 |            <span>⚡</span>
+12 |            <h1>CI Test Healer Dashboard
+13 |          </div>
+   |            ^
+14 |          <div className="status-pill">
+15 |            <div className="status-dot"></div>
 
-Frontend ES module verification test passed!
+Unexpected end of file before a closing "div" tag
+40 |      </div>
+41 |    );
+42 |  }
+   |   ^
+
+error during build:
+Error: Transform failed with 2 errors:
+/home/user/Desktop/ci-healer-frontend-demo/src/App.jsx:13:10: ERROR: Expected closing "div" tag to match opening "h1" tag
+/home/user/Desktop/ci-healer-frontend-demo/src/App.jsx:42:1: ERROR: Unexpected end of file before a closing "div" tag
+    at failureErrorWithLog (/home/user/Desktop/ci-healer-frontend-demo/node_modules/esbuild/lib/main.js:1649:15)
+    at /home/user/Desktop/ci-healer-frontend-demo/node_modules/esbuild/lib/main.js:847:29
+    at responseCallbacks.<computed> (/home/user/Desktop/ci-healer-frontend-demo/node_modules/esbuild/lib/main.js:703:9)
+    at handleIncomingPacket (/home/user/Desktop/ci-healer-frontend-demo/node_modules/esbuild/lib/main.js:762:9)
+    at Socket.readFromStdout (/home/user/Desktop/ci-healer-frontend-demo/node_modules/esbuild/lib/main.js:679:7)
+    at Socket.emit (node:events:518:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+npm notice
+npm notice New major version of npm available! 10.9.2 -> 12.0.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.0.2
+npm notice To update run: npm install -g npm@12.0.2
+npm notice
