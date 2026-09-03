@@ -8,7 +8,7 @@ export default function App() {
     <div className="dashboard-container">
       <div className="header">
         <div className="title-badge">
-          {/* Trigger live self-healing run v1.2.7 */}
+          {/* Hackathon Winner Live Demo Trigger */}
           <h1>CI Test Healer Dashboard
         </div>
         <div className="status-pill">
