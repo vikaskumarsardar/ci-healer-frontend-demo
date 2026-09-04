@@ -8,7 +8,6 @@ export default function App() {
     <div className="dashboard-container">
       <div className="header">
         <div className="title-badge">
-          {/* Hackathon Winner Live Demo Trigger */}
           <h1>CI Test Healer Dashboard</h1>
         </div>
         <div className="status-pill">
@@ -35,7 +34,7 @@ export default function App() {
       </div>
 
       <div className="code-box">
-        <code>$ rote play run https://play.modiqo.ai/swapankumar/ci-test-healer@1.0.0</code>
+        <code>$ rote play run https://play.modiqo.ai/swapankumar/ci-self-healer</code>
       </div>
     </div>
   );

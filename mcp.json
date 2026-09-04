@@ -6,7 +6,7 @@
         "play",
         "run",
         "https://play.modiqo.ai/swapankumar/ci-self-healer",
-        "target_dir=${workspaceFolder}",
+        "target_dir=.",
         "provider=gemini",
         "model=gemini-3.5-flash",
         "push_strategy=none",
