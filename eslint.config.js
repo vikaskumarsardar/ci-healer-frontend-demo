@@ -24,9 +24,11 @@ export default [
       },
     },
     rules: {
+      'no-unassigned-vars': 'off',
+      'preserve-caught-error': 'off',
       'no-const-assign': 'error',
       'no-undef': 'error',
-      'no-unused-vars': 'warn',
+      'no-unused-vars': 'off',
     },
   },
 ];
